@@ -3,8 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <text x="50" y="70" font-size="80" font-family="Arial, Helvetica, sans-serif" fill="white" text-anchor="middle" font-weight="700">M</text>
+    </svg>'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WE Packages Calculator</title>
+  <title>Packages</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: "class" }</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -43,6 +47,59 @@
       border-color: #1e40af;
       color: white;
     }
+
+    #road {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #333;
+    }
+
+    #road {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background-color: #333;
+      box-shadow: inset 0 10px 0 #555;
+    }
+
+    #robot {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 150px;
+      height: 150px;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    /* فقاعة الكلام */
+    #bubble {
+      position: fixed;
+      bottom: 180px;
+      left: 60px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 10px 15px;
+      font-size: 18px;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    #bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
   </style>
 </head>
 
@@ -78,12 +135,12 @@
 
         <h2 class="text-xl font-semibold mb-2">نوع باقات الإنترنت</h2>
         <div class="grid grid-cols-4 gap-3">
-          <label class="radio-card"><input type="radio" name="internet_type" value="super"><span>Super</span></label>
-          <label class="radio-card"><input type="radio" name="internet_type" value="mega"><span>Mega</span></label>
-          <label class="radio-card"><input type="radio" name="internet_type" value="ultra"><span>Ultra</span></label>
-          <label class="radio-card"><input type="radio" name="internet_type" value="Yearly"><span>Year</span></label>
-          <label class="radio-card"><input type="radio" name="internet_type" value="Sonic"><span>WE Sonic</span></label>
-          <label class="radio-card"><input type="radio" name="internet_type" value="MegaYear"><span>Mega
+          <label class="radio-card"><input type="radio" name="internet_type" value="super" onclick="react('like')"><span>Super</span></label>
+          <label class="radio-card"><input type="radio" name="internet_type" value="mega"onclick="react('like')"><span>Mega</span></label>
+          <label class="radio-card"><input type="radio" name="internet_type" value="ultra"  onclick="react('like')"><span>Ultra</span></label>
+          <label class="radio-card"><input type="radio" name="internet_type" value="Yearly" onclick="react('like')"><span>Year</span></label>
+          <label class="radio-card"><input type="radio" name="internet_type" value="Sonic" onclick="react('like')"><span>WE Sonic</span></label>
+          <label class="radio-card"><input type="radio" name="internet_type" value="MegaYear" onclick="react('like')" ><span>Mega
               Year</span></label>
           <label class="radio-card"><input type="radio" name="internet_type" value="UltraYear"><span>Ultra
               Year</span></label>
@@ -92,69 +149,69 @@
 
         <!-- باقات الإنترنت -->
         <div id="superPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="130"><span>30G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="190"><span>100G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="210"><span>140G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="290"><span>200G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="360"><span>250G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="570"><span>400G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="850"><span>600G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="1360"><span>1TB</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="130"onclick="react('ok')"><span>30G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="190"onclick="react('ok')"><span>100G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="210" onclick="react('ok')"><span>140G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="290"onclick="react('ok')"><span>200G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="360"onclick="react('ok')"><span>250G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="570"onclick="react('ok')"><span>400G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="850"onclick="react('ok')"><span>600G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="1360"onclick="react('ok')"><span>1TB</span></label>
 
         </div>
         <div id="megaPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="380"><span>140G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="530"><span>250G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="1040"><span>600G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="1560"><span>1TB</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="380" onclick="react('ok')"><span>140G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="530" onclick="react('ok')"><span>250G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="1040"onclick="react('angry')"><span>600G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="1560"onclick="react('angry')"><span>1TB</span></label>
         </div>
         <div id="ultraPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="550"><span>140G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="700"><span>250G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="1230"><span>600G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="550" onclick="react('ok')"><span>140G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="700" onclick="react('ok')"><span>250G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="1230"onclick="react('angry')"><span>600G</span></label>
         </div>
         <div id="YearlyPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="3960"><span>3000G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="6270"><span>4800G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="8925"><span>7200G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="13600"><span>12TB</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="3960" onclick="react('ok')"><span>3000G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="6270" onclick="react('ok')"><span>4800G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="8925" onclick="react('angry')"><span>7200G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="13600"onclick="react('angry')"><span>12TB</span></label>
         </div>
         <div id="SonicPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="600"><span>GAMERZ</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="600"><span>STREAMERZ</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="1200"><span>PLUS</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="600" onclick="react('ok')"><span>GAMERZ</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="600" onclick="react('ok')"><span>STREAMERZ</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="1200"onclick="react('angry')"><span>PLUS</span></label>
         </div>
         <div id="MegaYearPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="5830"><span>3000G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="10920"><span>7200G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="15600"><span>12TB</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="5830" onclick="react('angry')"><span>3000G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="10920"onclick="react('angry')"><span>7200G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="15600"onclick="react('angry')"><span>12TB</span></label>
         </div>
         <div id="UltraYearPackages" class="internet-packages hidden grid grid-cols-4 gap-3 mt-4">
-          <label class="radio-card"><input type="radio" name="package" value="7700"><span>3000G</span></label>
-          <label class="radio-card"><input type="radio" name="package" value="12915"><span>7200G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="7700" onclick="react('angry')"><span>3000G</span></label>
+          <label class="radio-card"><input type="radio" name="package" value="12915"onclick="react('angry')"><span>7200G</span></label>
         </div>
         <!-- راوتر -->
         <h2 class="text-xl font-semibold mt-4">راوتر</h2>
         <div class="grid grid-cols-5 gap-3">
-          <label class="radio-card"><input type="radio" name="router" value="5"><span>5</span></label>
-          <label class="radio-card"><input type="radio" name="router" value="10"><span>10</span></label>
-          <label class="radio-card"><input type="radio" name="router" value="20"><span>20</span></label>
-          <label class="radio-card"><input type="radio" name="router" value="50"><span>50</span></label>
-          <label class="radio-card"><input type="radio" name="router" value="25"><span>ONT</span></label>
+          <label class="radio-card"><input type="radio" name="router" value="5" onclick="react('angry1')"><span>5</span></label>
+          <label class="radio-card"><input type="radio" name="router" value="10"onclick="react('angry1')"><span>10</span></label>
+          <label class="radio-card"><input type="radio" name="router" value="20"onclick="react('angry1')"><span>20</span></label>
+          <label class="radio-card"><input type="radio" name="router" value="50"onclick="react('angry1')"><span>50</span></label>
+          <label class="radio-card"><input type="radio" name="router" value="25"onclick="react('angry1')"><span>ONT</span></label>
 
         </div>
         <!-- باقات إضافية -->
         <h2 class="text-xl font-semibold mt-4">باقات إضافية</h2>
         <div class="grid grid-cols-5 gap-3">
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="52"><span>20</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="105"><span>50</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="170"><span>100</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="420"><span>400</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="1625"><span>2000</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="10"><span>Salfny</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="75"><span>PS 150</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="150"><span>PS 300</span></label>
-          <label class="radio-card"><input type="checkbox" name="extra_package" value="30"><span>GAME40</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="52"><span>20</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="105"><span>50</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="170"><span>100</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="420"><span>400</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="1625"><span>2000</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="10"><span>Salfny</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="75"><span>PS 150</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="150"><span>PS 300</span></label>
+          <label class="radio-card"><input type="checkbox" name="extra_package"onclick="react('ok')" value="30"><span>GAME40</span></label>
 
 
         </div>
@@ -162,17 +219,18 @@
         <!-- IP ثابت -->
         <h2 class="text-xl font-semibold mt-4">IP ثابت</h2>
         <div class="grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="ip" value="67"><span>OP 1</span></label>
-          <label class="radio-card"><input type="radio" name="ip" value="330"><span>OP 2</span></label>
-          <label class="radio-card"><input type="radio" name="ip" value="750"><span>OP 3</span></label>
+          <label class="radio-card"><input type="radio" name="ip"onclick="react('ok')" value="67"><span>OP 1</span></label>
+          <label class="radio-card"><input type="radio" name="ip"onclick="react('ok')" value="330"><span>OP 2</span></label>
+          <label class="radio-card"><input type="radio" name="ip"onclick="react('ok')" value="750"><span>OP 3</span></label>
         </div>
         <!-- خصم -->
         <h2 class="text-xl font-semibold mt-4">خصم</h2>
-        <div class="grid grid-cols-4 gap-3">
-          <label class="radio-card"><input type="radio" name="discount_package" value="10"><span>10%</span></label>
-          <label class="radio-card"><input type="radio" name="discount_package" value="20"><span>20%</span></label>
-          <label class="radio-card"><input type="radio" name="discount_package" value="25"><span>25%</span></label>
-          <label class="radio-card"><input type="radio" name="discount_package" value="50"><span>50%</span></label>
+        <div class="grid grid-cols-5 gap-3">
+          <label class="radio-card"><input type="radio" name="discount_package"onclick="react('wink')" value="10"><span>10%</span></label>
+          <label class="radio-card"><input type="radio" name="discount_package"onclick="react('wink')" value="15"><span>15%</span></label>
+          <label class="radio-card"><input type="radio" name="discount_package"onclick="react('wink')" value="20"><span>20%</span></label>
+          <label class="radio-card"><input type="radio" name="discount_package"onclick="react('wink')" value="25"><span>25%</span></label>
+          <label class="radio-card"><input type="radio" name="discount_package"onclick="react('wink')" value="50"><span>50%</span></label>
         </div>
 
 
@@ -201,47 +259,47 @@
 
         <!-- باقات منزلي شهري -->
         <div id="landlineHome_monthly" class="landline-packages grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="35"><span>WE 35</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="45"><span>WE 45</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="75"><span>WE 75</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="35"><span>WE 35</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="45"><span>WE 45</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="75"><span>WE 75</span></label>
         </div>
 
         <!-- باقات منزلي ربع سنوي -->
         <div id="landlineHome_quarterly" class="landline-packages hidden grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="105"><span>WE 35/kalami
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="105"><span>WE 35/kalami
               35</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="135"><span>WE 45</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="225"><span>WE 75</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="135"><span>WE 45</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="225"><span>WE 75</span></label>
         </div>
 
         <!-- باقات منزلي سنوي -->
         <div id="landlineHome_yearly" class="landline-packages hidden grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="420"><span>WE 35/kalami
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="420"><span>WE 35/kalami
               35</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="540"><span>WE 45</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="900"><span>WE 75</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package"
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="540"><span>WE 45</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="900"><span>WE 75</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package"
               value="260"><span>marhaban</span></label>
         </div>
 
         <!-- باقات تجاري شهري -->
         <div id="landlineBusiness_monthly" class="landline-packages hidden grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="55"><span>WE 55</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="60"><span>WE 60</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="85"><span>WE 85</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="55"><span>WE 55</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="60"><span>WE 60</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="85"><span>WE 85</span></label>
         </div>
 
         <!-- باقات تجاري ربع سنوي -->
         <div id="landlineBusiness_quarterly" class="landline-packages hidden grid grid-cols-3 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="165"><span>WE 55</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="180."><span>WE 60</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="255"><span>WE 85</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="165"><span>WE 55</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="180."><span>WE 60</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="255"><span>WE 85</span></label>
         </div>
 
         <!-- باقات تجاري سنوي -->
         <div id="landlineBusiness_yearly" class="landline-packages hidden grid grid-cols-2 gap-3">
-          <label class="radio-card"><input type="radio" name="landline_package" value="660"><span>WE 55</span></label>
-          <label class="radio-card"><input type="radio" name="landline_package" value="720"><span>WE 60</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="660"><span>WE 55</span></label>
+          <label class="radio-card"><input type="radio"onclick="react('ok')" name="landline_package" value="720"><span>WE 60</span></label>
         </div>
       </div>
 
@@ -279,6 +337,8 @@
       </div>
     </div>
   </div>
+  <div id="bubble"></div>
+  <img id="robot" src="https://img.icons8.com/emoji/144/robot-emoji.png" alt="روبوت">
 
   <script>
     // Dark mode toggle
@@ -345,8 +405,8 @@
 
     const priceWithFee2 = document.getElementById('priceWithFee2');
     // خصم (radio)
-     
-   
+
+
     function updateSummary() {
 
 
@@ -460,12 +520,55 @@
       updateSummary();
     });
 
+    const robot = document.getElementById('robot');
+    const bubble = document.getElementById('bubble');
+
+    function react(type) {
+      let img = '';
+      let msg = '';
+
+      switch (type) {
+        case 'like':
+          img = "https://img.icons8.com/emoji/144/robot-emoji.png";
+          msg = "  اوك👍";
+          break;
+        case 'ok':
+          img = "https://img.icons8.com/emoji/144/ok-hand-emoji.png";
+          msg = "تمام 👌";
+          break;
+        case 'wink':
+          img = "https://img.icons8.com/emoji/144/winking-face.png";
+          msg = "ايوا اديله ادي ع خصومات 😉";
+          break;
+        case 'angry':
+          img = "https://img.icons8.com/emoji/144/pouting-face.png";
+          msg = "😡 ليه غاليه كده اوي!";
+          break;
+             case 'angry1':
+          img = "https://img.icons8.com/emoji/144/pouting-face.png";
+          msg = "😡 مش هنخلص من قسط ده!";
+          break;
+      }
+
+      robot.src = img;
+      robot.style.transform = "scale(1.1)";
+      if (type === 'angry') robot.style.filter = "hue-rotate(-30deg) brightness(0.9)";
+      else robot.style.filter = "none";
+
+      setTimeout(() => robot.style.transform = "scale(1)", 300);
+
+      bubble.textContent = msg;
+      bubble.style.opacity = 1;
+      setTimeout(() => bubble.style.opacity = 0, 2000);
+    }
 
     // Init
     updateServiceType();
     updateInternetPackages();
     updateLandlinePackages();
     updateSummary();
+
+
   </script>
 
 </body>
