@@ -422,10 +422,10 @@
         else if (total <= 350) { totalWithFee += 10; paymentFee = 10; }
         else if (total <= 499) { totalWithFee += 12; paymentFee = 12; }
         else { totalWithFee += 17; paymentFee = 17; }
-        priceNoTax.textContent = `EGP ${subtotal.toFixed(2)}`;
-        priceWithVAT.textContent = `EGP ${total.toFixed(2)}`;
-        priceWithFee2.textContent = `EGP ${totalWithFee.toFixed(2)}`;
-        priceWithFee.textContent = `${paymentFee.toFixed(2)} خدمه مكاينات الدفع مع سعر باقه `;
+        priceNoTax.textContent = `EGP ${Math.round(subtotal.toFixed(2)}`;
+        priceWithVAT.textContent = `EGP ${Math.round(total.toFixed(2))}`;
+        priceWithFee2.textContent = `EGP ${Math.round(totalWithFee.toFixed(2))}`;
+        priceWithFee.textContent = `${Math.round(paymentFee.toFixed(2))} خدمه مكاينات الدفع مع سعر باقه `;
 
       }
       // رسوم مكيانات دفع
@@ -473,3 +473,4 @@
 
 
 </html>
+
