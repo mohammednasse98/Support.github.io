@@ -168,9 +168,8 @@
         </div>
         <!-- خصم -->
         <h2 class="text-xl font-semibold mt-4">خصم</h2>
-        <div class="grid grid-cols-5 gap-3">
+        <div class="grid grid-cols-4 gap-3">
           <label class="radio-card"><input type="radio" name="discount_package" value="10"><span>10%</span></label>
-          <label class="radio-card"><input type="radio" name="discount_package" value="15"><span>15%</span></label>
           <label class="radio-card"><input type="radio" name="discount_package" value="20"><span>20%</span></label>
           <label class="radio-card"><input type="radio" name="discount_package" value="25"><span>25%</span></label>
           <label class="radio-card"><input type="radio" name="discount_package" value="50"><span>50%</span></label>
@@ -422,7 +421,7 @@
         else if (total <= 350) { totalWithFee += 10; paymentFee = 10; }
         else if (total <= 499) { totalWithFee += 12; paymentFee = 12; }
         else { totalWithFee += 17; paymentFee = 17; }
-        priceNoTax.textContent = `EGP ${subtotal.toFixed(2}`;
+        priceNoTax.textContent = `EGP ${subtotal.toFixed(2)}`;
         priceWithVAT.textContent = `EGP ${total.toFixed(2)}`;
         priceWithFee2.textContent = `EGP ${totalWithFee.toFixed(2)}`;
         priceWithFee.textContent = `${paymentFee.toFixed(2)} خدمه مكاينات الدفع مع سعر باقه `;
@@ -471,7 +470,4 @@
 
 </body>
 
-
 </html>
-
-
