@@ -101,11 +101,13 @@
       border-color: #fff transparent transparent transparent;
     }
 
-    #mazola {
+      #mazola {
       position: fixed;
       top: 10px;
       left: 10px;
-      background: rgba(30, 136, 229, 0.8);
+      width: 200px;
+      text-align: center;
+      background: linear-gradient(45deg, #6f0779, #000000);
       color: #fff;
       font-weight: bold;
       font-size: 20px;
@@ -674,7 +676,7 @@
 
       bubble.textContent = msg;
       bubble.style.opacity = 1;
-      setTimeout(() => bubble.style.opacity = 0, 3000);
+      setTimeout(() => bubble.style.opacity = 0, 2000);
     }
 
     // Init
