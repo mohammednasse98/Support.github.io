@@ -449,20 +449,34 @@
       </div>
 
       <!-- Summary Section -->
-      <div class="border-t pt-4 space-y-2" id="summarySection">
-        <div class="flex justify-between">
-          <span id="priceNoTax" class="text-gray-300 font-semibold">EGP 0.00</span>
-          <span class="font-bold text-lg">غير شامل الضريبة</span>
-        </div>
-        <div class="flex justify-between">
-          <span id="priceWithVAT" class="text-green-400 font-semibold">EGP 0.00</span>
-          <span class="font-bold text-lg">شامل الضريبة</span>
-        </div>
-        <div class="flex justify-between">
-          <span id="priceWithFee2" class="font-semibold">EGP 0.00</span>
-          <span id="priceWithFee" class="font-bold text-lg"> شامل سعر مع مكيانات دفع </span>
-        </div>
-      </div>
+     <!-- Summary Section -->
+<div class="border-t pt-4 space-y-3" id="summarySection">
+  
+  <div class="flex justify-between items-center bg-gray-100 dark:bg-gray-700 rounded-xl px-4 py-3">
+    <div class="text-right">
+      <div class="text-xs text-gray-400 mb-1">غير شامل الضريبة</div>
+      <span id="priceNoTax" class="text-gray-300 font-bold text-lg">EGP 0.00</span>
+    </div>
+    <div class="text-2xl opacity-30">🧾</div>
+  </div>
+
+  <div class="flex justify-between items-center bg-green-900/20 border border-green-700/30 rounded-xl px-4 py-3">
+    <div class="text-right">
+      <div class="text-xs text-green-400 mb-1">شامل الضريبة 14%</div>
+      <span id="priceWithVAT" class="text-green-400 font-bold text-lg">EGP 0.00</span>
+    </div>
+    <div class="text-2xl opacity-40">💰</div>
+  </div>
+
+  <div class="flex justify-between items-center bg-blue-900/20 border border-blue-700/30 rounded-xl px-4 py-3">
+    <div class="text-right">
+      <div class="text-xs text-blue-400 mb-1" id="priceWithFee">شامل سعر مع مكيانات دفع</div>
+      <span id="priceWithFee2" class="text-blue-400 font-bold text-lg">EGP 0.00</span>
+    </div>
+    <div class="text-2xl opacity-40">💳</div>
+  </div>
+
+</div>
     </div>
   </div>
   <div id="bubble"></div>
