@@ -622,11 +622,11 @@
           // رسوم مكيانات دفع
           let paymentFee = 0;
           let totalWithFee = total;
-          if (total === 0) { totalWithFee += 0; paymentFee = 0; }
-          else if (total < 199) { totalWithFee += 7; paymentFee = 7; }
-          else if (total <= 350) { totalWithFee += 10; paymentFee = 10; }
-          else if (total <= 499) { totalWithFee += 12; paymentFee = 12; }
-          else { totalWithFee += 17; paymentFee = 17; }
+       if (total === 0) { totalWithFee += 0; paymentFee = 0; }
+          else if (total < 149) { totalWithFee += 8; paymentFee = 8; }
+          else if (total <= 300) { totalWithFee += 11; paymentFee = 11; }
+          else if (total <= 450) { totalWithFee += 13.5; paymentFee = 13.5; }
+          else { totalWithFee += 18; paymentFee = 18; }
 
           priceNoTax.textContent = `EGP ${subtotal2.toFixed(2)}`;
           priceWithVAT.textContent = `EGP ${total.toFixed(2)}`;
@@ -638,11 +638,10 @@
         total = subtotal * 1.14; // أرضي 14%
         let paymentFee = 0;
         let totalWithFee = total;
-        if (total === 0) { totalWithFee += 0; paymentFee = 0; }
-        else if (total < 199) { totalWithFee += 7; paymentFee = 7; }
-        else if (total <= 350) { totalWithFee += 10; paymentFee = 10; }
-        else if (total <= 499) { totalWithFee += 12; paymentFee = 12; }
-        else { totalWithFee += 17; paymentFee = 17; }
+       if (total === 0) { totalWithFee += 0; paymentFee = 0; }
+        else if (total < 50) { totalWithFee += 4; paymentFee = 4; }
+        else if (total <= 100) { totalWithFee += 5; paymentFee = 5; }
+        else { totalWithFee += 8; paymentFee = 8; }
         priceNoTax.textContent = `EGP ${subtotal.toFixed(2)}`;
         priceWithVAT.textContent = `EGP ${total.toFixed(2)}`;
         priceWithFee2.textContent = `EGP ${totalWithFee.toFixed(2)}`;
@@ -652,11 +651,11 @@
       // رسوم مكيانات دفع
       let paymentFee = 0;
       let totalWithFee = total;
-      if (total === 0) { totalWithFee += 0; paymentFee = 0; }
-      else if (total < 199) { totalWithFee += 7; paymentFee = 7; }
-      else if (total <= 350) { totalWithFee += 10; paymentFee = 10; }
-      else if (total <= 499) { totalWithFee += 12; paymentFee = 12; }
-      else { totalWithFee += 17; paymentFee = 17; }
+        if (total === 0) { totalWithFee += 0; paymentFee = 0; }
+          else if (total < 149) { totalWithFee += 8; paymentFee = 8; }
+          else if (total <= 300) { totalWithFee += 11; paymentFee = 11; }
+          else if (total <= 450) { totalWithFee += 13.5; paymentFee = 13.5; }
+          else { totalWithFee += 18; paymentFee = 18; }
 
 
       // تحديث العرضpriceNoTax.textContent = `EGP ${subtotal.toFixed(2)}`;
